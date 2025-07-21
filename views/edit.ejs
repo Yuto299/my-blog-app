@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>編集画面</title>
+  </head>
+  <body>
+    <form action="/edit" method="post">
+      <input type="hidden" name="index" value="<%= index %>" />
+      <!-- 番号は隠しておいていい -->
+      <input type="text" name="content" value="<%= post %>" />
+      <input type="submit" value="更新" />
+    </form>
+  </body>
+</html>

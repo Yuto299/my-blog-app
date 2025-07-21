@@ -13,9 +13,13 @@
     </form>
 
     <ul>
-      <% if (posts && posts.length > 0) { %> <% posts.forEach(function(post) {
-      %>
-      <li><%= post %></li>
+      <% if (locals.posts && locals.posts.length > 0) { %>
+      <%posts.forEach(function(post, idx) { %>
+      <li>
+        <%= post %>
+        <a href="/edit?index=<%= idx %>">編集</a>
+        <a href="/delete?index=<%= idx %>">削除</a>
+      </li>
       <% }) %> <% } %>
     </ul>
   </body>

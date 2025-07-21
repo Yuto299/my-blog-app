@@ -17,6 +17,7 @@ app.get("/", (req, res) => {
   res.render("index", { posts });
 });
 
+// 投稿処理
 app.post("/post", (req, res) => {
   const content = req.body.content;
   if (content) {
@@ -25,10 +26,25 @@ app.post("/post", (req, res) => {
   res.redirect("/");
 });
 
-app.get("/about", (req, res) => {
-  res.render("about");
+// 編集画面を表示
+app.get("/edit", (req, res) => {
+  const index = req.query.index; // URLのindexを取得
+  res.render("edit", { post: posts[index], index });
 });
 
+// 更新処理
+app.post("/edit", (req, res) => {
+  const index = req.body.index; // 今編集しているもののindexを取得
+  const content = req.body.content;
+  if (posts[index] !== undefined && content) {
+    posts[index] = content;
+  }
+  res.redirect("/");
+});
+
+// 削除処理
+
+// 接続確認
 app.listen(port, () => {
   console.log(`Server is running on ${port}`);
 });
