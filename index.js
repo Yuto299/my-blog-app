@@ -43,6 +43,13 @@ app.post("/edit", (req, res) => {
 });
 
 // 削除処理
+app.get("/delete", (req, res) => {
+  const index = req.query.index;
+  if (posts[index] != undefined) {
+    posts.splice(index, 1); // indexのindex番目から1件削除する
+  }
+  res.redirect("/");
+});
 
 // 接続確認
 app.listen(port, () => {

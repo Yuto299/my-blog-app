@@ -18,7 +18,11 @@
       <li>
         <%= post %>
         <a href="/edit?index=<%= idx %>">編集</a>
-        <a href="/delete?index=<%= idx %>">削除</a>
+        <a
+          href="/delete?index=<%= idx %>"
+          onclick="return confirm('本当に削除しますか？')"
+          >削除</a
+        >
       </li>
       <% }) %> <% } %>
     </ul>
