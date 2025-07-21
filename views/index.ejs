@@ -7,9 +7,16 @@
   </head>
 
   <body>
-    <form action="/submit" method="post"></form>
-    <input type="text" name="content" placeholder="掲示板投稿" />
-    <input type="text" name="name" placeholder="投稿者" />
-    <input type="submit" value="投稿" />
+    <form action="/post" method="post">
+      <input type="text" name="content" placeholder="投稿内容" />
+      <input type="submit" value="投稿" />
+    </form>
+
+    <ul>
+      <% if (posts && posts.length > 0) { %> <% posts.forEach(function(post) {
+      %>
+      <li><%= post %></li>
+      <% }) %> <% } %>
+    </ul>
   </body>
 </html>
